@@ -1,0 +1,32 @@
+---
+- name: Install dnsmasq
+  ansible.builtin.package:
+    name: "{{ dnsmasq_package_name }}"
+    state: "present"
+
+- name: Configure dnsmasq
+  ansible.builtin.template:
+    src: dnsmasq.conf.j2
+    dest: "{{ dnsmasq_config_location }}"
+    owner: "{{ dnsmasq_config_owner }}"
+    group: "{{ dnsmasq_config_group }}"
+    mode: "{{ dnsmasq_config_mode }}"
+    validate: "dnsmasq --test --conf-file=%s"
+  notify: Restart dnsmasq
+
+- name: Create additional dnsmasq configuration files
+  ansible.builtin.copy:
+    content: "{{ item.content }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ dnsmasq_config_owner }}"
+    group: "{{ dnsmasq_config_group }}"
+    mode: "{{ dnsmasq_config_mode }}"
+    validate: "dnsmasq --test --conf-file=%s"
+  loop: "{{ dnsmasq_include_files }}"
+  notify: Restart dnsmasq
+
+- name: Start and enable dnsmasq service
+  ansible.builtin.service:
+    name: "{{ dnsmasq_service_name }}"
+    state: "started"
+    enabled: true

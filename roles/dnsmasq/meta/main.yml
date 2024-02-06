@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Michael Wadman
+  description: Installs and configures dnsmasq.
+  license: "MIT"
+  min_ansible_version: "2.16"
+  galaxy_tags:
+    - "linux"
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+dependencies: []

@@ -1,0 +1,96 @@
+---
+# System Variables
+
+dnsmasq_package_name: "dnsmasq"
+dnsmasq_service_name: "dnsmasq"
+dnsmasq_config_location: "/etc/dnsmasq.conf"
+dnsmasq_config_owner: "root"
+dnsmasq_config_group: "{{ dnsmasq_system_group }}"
+dnsmasq_config_mode: "644"
+dnsmasq_cache_size: 150
+dnsmasq_cache_disable_negative: false
+dnsmasq_cache_local_ttl: false
+dnsmasq_include_files: []
+### dnsmasq_include_files:
+###   - content: |
+###       local=/example/
+###     dest: /etc/dnsmasq.d/example.conf
+
+# dnsmasq Configuration
+
+## DNS Configuration
+dnsmasq_dns_port: 53
+dnsmasq_dns_domain_needed: false
+dnsmasq_dns_bogus_priv: false
+dnsmasq_dns_dnssec_enabled: false
+dnsmasq_dns_dnssec_conf_location: "/usr/share/dnsmasq/trust-anchors.conf"
+dnsmasq_dns_dnssec_check_unsigned: false
+dnsmasq_dns_filterwin2k: false
+dnsmasq_dns_resolv_file: ""
+dnsmasq_dns_resolv_strict_order: false
+dnsmasq_dns_resolv_ignore: false
+dnsmasq_dns_resolv_no_poll: false
+dnsmasq_dns_servers: []
+dnsmasq_dns_local_domains: []
+dnsmasq_dns_addresses: []
+dnsmasq_dns_ipsets: []
+dnsmasq_dns_bogus_nxdomain: ""
+dnsmasq_dns_aliases: []
+dnsmasq_dns_mx_records: []
+dnsmasq_dns_mx_target: ""
+dnsmasq_dns_mx_local: false
+dnsmasq_dns_mx_self: false
+dnsmasq_dns_srv_records: []
+dnsmasq_dns_ptr_records: []
+dnsmasq_dns_txt_records: []
+dnsmasq_dns_cname_records: []
+dnsmasq_dns_log_queries: false
+
+## System Configuration
+dnsmasq_system_user: "dnsmasq"
+dnsmasq_system_group: "dnsmasq"
+dnsmasq_system_interfaces:
+  - "lo"
+dnsmasq_system_interface_exceptions: []
+dnsmasq_system_listen_addresses: []
+dnsmasq_system_interface_dhcp_exceptions: []
+dnsmasq_system_local_service: false
+dnsmasq_system_bind_interfaces: true
+dnsmasq_system_no_hosts: false
+dnsmasq_system_addn_hosts: []
+dnsmasq_system_expand_hosts: false
+dnsmasq_system_domains: []
+
+## DHCP Configuration
+dnsmasq_dhcp_ranges: []
+dnsmasq_dhcp_enable_ra: false
+dnsmasq_dhcp_hosts: []
+dnsmasq_dhcp_ignores: []
+dnsmasq_dhcp_vendor_classes: []
+dnsmasq_dhcp_user_classes: []
+dnsmasq_dhcp_mac_options: []
+dnsmasq_dhcp_read_ethers: false
+dnsmasq_dhcp_options: []
+dnsmasq_dhcp_options_force: []
+dnsmasq_dhcp_boot: []
+dnsmasq_dhcp_matches: []
+dnsmasq_dhcp_max_leases: 150
+dnsmasq_dhcp_lease_file: "/var/lib/dnsmasq/dnsmasq.leases"
+dnsmasq_dhcp_authoritative: false
+dnsmasq_dhcp_rapid_commit: false
+dnsmasq_dhcp_script: ""
+dnsmasq_dhcp_log_verbose: false
+dnsmasq_dhcp_name_matches: []
+dnsmasq_dhcp_name_ignores: []
+
+## PXE Configuration
+dnsmasq_pxe_prompt: ""
+dnsmasq_pxe_services: []
+
+## TFTP Configuration
+dnsmasq_tftp_enable: false
+dnsmasq_tftp_services: []
+dnsmasq_tftp_root: "/var/ftpd"
+dnsmasq_tftp_no_fail: false
+dnsmasq_tftp_secure: false
+dnsmasq_tftp_no_blocksize: false
